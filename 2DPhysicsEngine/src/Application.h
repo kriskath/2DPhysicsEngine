@@ -2,20 +2,26 @@
 #define APPLICATION_H
 
 #include "./Graphics.h"
+#include "Physics/Particle.h"
 
 class Application {
-    private:
-        bool running = false;
+private:
+    bool running = false;
+    Uint32 timePreviousFrame;
+    Particle* particle;
 
-    public:
-        Application() = default;
-        ~Application() = default;
-        bool IsRunning();
-        void Setup();
-        void Input();
-        void Update();
-        void Render();
-        void Destroy();
+public:
+    Application() = default;
+    ~Application() = default;
+    bool IsRunning();
+    void Setup();
+    void Input();
+    void Update();
+    void Render();
+    void Destroy();
+
+private:
+    void Wait();
 };
 
 #endif
